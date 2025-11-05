@@ -1,0 +1,19 @@
+# Staging area
+staging/
+
+# Staging metadata
+metadata/
+
+# logs
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
+*.bak
+
+# Runtime marker (created after successful environment initialization)
+.complete
