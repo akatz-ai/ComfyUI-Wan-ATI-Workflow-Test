@@ -484,7 +484,6 @@ dependencies = [
     { name = "torchvision" },
     { name = "tqdm" },
     { name = "transformers" },
-    { name = "triton" },
     { name = "yarl" },
 ]
 
@@ -563,7 +562,6 @@ requires-dist = [
     { name = "torchvision", index = "https://download.pytorch.org/whl/cu129" },
     { name = "tqdm" },
     { name = "transformers", specifier = ">=4.37.2" },
-    { name = "triton", specifier = ">=3.5.0" },
     { name = "yarl", specifier = ">=1.18.0" },
 ]
 

@@ -29,7 +29,6 @@ dependencies = [
     "torchvision",
     "tqdm",
     "transformers>=4.37.2",
-    "triton>=3.5.0",
     "yarl>=1.18.0",
 ]
 
