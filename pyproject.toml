@@ -37,14 +37,6 @@ dependencies = [
 comfyui_version = "v0.3.68"
 python_version = "3.12"
 
-[tool.comfydock.nodes.comfyui-kjnodes]
-name = "ComfyUI-KJNodes"
-registry_id = "comfyui-kjnodes"
-repository = "https://github.com/kijai/comfyui-kjnodes"
-version = "1.1.6"
-download_url = "https://cdn.comfy.org/kijai/comfyui-kjnodes/1.1.6/node.zip"
-source = "registry"
-
 [tool.comfydock.nodes.comfyui-videohelpersuite]
 name = "ComfyUI-VideoHelperSuite"
 registry_id = "comfyui-videohelpersuite"
@@ -59,6 +51,14 @@ registry_id = "comfyui_fill-nodes"
 repository = "https://github.com/filliptm/ComfyUI_Fill-Nodes"
 version = "2.1.0"
 download_url = "https://cdn.comfy.org/machinedelusions/comfyui_fill-nodes/2.1.0/node.zip"
+source = "registry"
+
+[tool.comfydock.nodes.comfyui-kjnodes]
+name = "ComfyUI-KJNodes"
+registry_id = "comfyui-kjnodes"
+repository = "https://github.com/kijai/ComfyUI-KJNodes"
+version = "1.1.9"
+download_url = "https://cdn.comfy.org/kijai/comfyui-kjnodes/1.1.9/node.zip"
 source = "registry"
 
 [tool.comfydock.workflows.Wan-Motion-Control]
@@ -162,7 +162,7 @@ comfyui-fill-nodes-01517acc = [
     "scipy>=1.13.1",
     "sounddevice",
 ]
-comfyui-kjnodes-ece3b04f = [
+comfyui-kjnodes-f4971021 = [
     "color-matcher",
     "huggingface-hub",
     "matplotlib",
