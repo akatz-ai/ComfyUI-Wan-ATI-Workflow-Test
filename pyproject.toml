@@ -117,6 +117,8 @@ constraint-dependencies = ["torch==2.9.0+cu129", "torchvision==0.24.0+cu129", "t
 [tool.uv.extra-build-dependencies]
 sageattention = ["torch"]
 
+index = []
+
 [[tool.uv.index]]
 name = "pytorch-cu129"
 url = "https://download.pytorch.org/whl/cu129"
@@ -130,7 +132,6 @@ index = "pytorch-cu129"
 
 [tool.uv.sources.torchaudio]
 index = "pytorch-cu129"
-
 [dependency-groups]
 comfyui-fill-nodes-01517acc = [
     "aiohttp",
