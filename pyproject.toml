@@ -34,10 +34,82 @@ dependencies = [
 
 [tool.comfydock]
 comfyui_version = "v0.3.68"
-comfyui_version_type = "release"
-comfyui_commit_sha = "265adad858e1f31b66cd3523a02b16f5d34ced52"
 python_version = "3.12"
-torch_backend = "auto"
+
+[tool.comfydock.nodes.comfyui-kjnodes]
+name = "ComfyUI-KJNodes"
+registry_id = "comfyui-kjnodes"
+repository = "https://github.com/kijai/comfyui-kjnodes"
+version = "1.1.6"
+download_url = "https://cdn.comfy.org/kijai/comfyui-kjnodes/1.1.6/node.zip"
+source = "registry"
+
+[tool.comfydock.nodes.comfyui-videohelpersuite]
+name = "ComfyUI-VideoHelperSuite"
+registry_id = "comfyui-videohelpersuite"
+repository = "https://github.com/kosinkadink/comfyui-videohelpersuite"
+version = "1.7.7"
+download_url = "https://cdn.comfy.org/kosinkadink/comfyui-videohelpersuite/1.7.7/node.zip"
+source = "registry"
+
+[tool.comfydock.nodes.comfyui_fill-nodes]
+name = "ComfyUI_Fill-Nodes"
+registry_id = "comfyui_fill-nodes"
+repository = "https://github.com/filliptm/ComfyUI_Fill-Nodes"
+version = "2.1.0"
+download_url = "https://cdn.comfy.org/machinedelusions/comfyui_fill-nodes/2.1.0/node.zip"
+source = "registry"
+
+[tool.comfydock.workflows.Wan-Motion-Control]
+nodes = ["comfyui-kjnodes", "comfyui-videohelpersuite", "comfyui_fill-nodes"]
+path = "workflows/Wan-Motion-Control.json"
+
+[[tool.comfydock.workflows.Wan-Motion-Control.models]]
+filename = "clip_vision_h.safetensors"
+category = "clip_vision"
+criticality = "required"
+status = "resolved"
+nodes = [{node_id = "447", node_type = "CLIPVisionLoader", widget_idx = 0, widget_value = "clip_vision_h.safetensors"}]
+hash = "0b222b1d568748dc"
+
+[[tool.comfydock.workflows.Wan-Motion-Control.models]]
+filename = "Wan21_CausVid_14B_T2V_lora_rank_1.safetensors"
+category = "loras"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "443", node_type = "LoraLoaderModelOnly", widget_idx = 0, widget_value = "Wan21_CausVid_14B_T2V_lora_rank_1.safetensors"}]
+hash = "ff1ae733015de847"
+
+[[tool.comfydock.workflows.Wan-Motion-Control.models]]
+filename = "Wan2_1-I2V-ATI-14B_fp8_e4m3fn.safetensors"
+category = "diffusion_models"
+criticality = "required"
+status = "resolved"
+nodes = [{node_id = "442", node_type = "UNETLoader", widget_idx = 0, widget_value = "Wan2_1-I2V-ATI-14B_fp8_e4m3fn.safetensors"}]
+hash = "092dc60ec1a05893"
+
+[[tool.comfydock.workflows.Wan-Motion-Control.models]]
+filename = "umt5_xxl_fp8_e4m3fn_scaled.safetensors"
+category = "clip"
+criticality = "required"
+status = "resolved"
+nodes = [{node_id = "439", node_type = "CLIPLoader", widget_idx = 0, widget_value = "umt5_xxl_fp8_e4m3fn_scaled.safetensors"}]
+hash = "7602dd25ff8ea269"
+
+[[tool.comfydock.workflows.Wan-Motion-Control.models]]
+filename = "Wan2_1_VAE_fp32.safetensors"
+category = "vae"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "440", node_type = "VAELoader", widget_idx = 0, widget_value = "Wan2_1_VAE_fp32.safetensors"}]
+hash = "a73d72d9d04aaa71"
+
+[tool.comfydock.models]
+0b222b1d568748dc = {filename = "clip_vision_h.safetensors", size = 1264219396, relative_path = "clip_vision/clip_vision_h.safetensors", category = "clip_vision", sources = ["https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors?download=true"]}
+ff1ae733015de847 = {filename = "Wan21_CausVid_14B_T2V_lora_rank_1.safetensors", size = 319116504, relative_path = "loras/Wan21_CausVid_14B_T2V_lora_rank_1.safetensors", category = "loras", sources = ["https://huggingface.co/lividtm/Wan_ATI/resolve/main/Wan21_CausVid_14B_T2V_lora_rank32%20(1).safetensors?download=true"]}
+092dc60ec1a05893 = {filename = "Wan2_1-I2V-ATI-14B_fp8_e4m3fn.safetensors", size = 17135435696, relative_path = "diffusion_models/Wan2_1-I2V-ATI-14B_fp8_e4m3fn.safetensors", category = "diffusion_models", sources = ["https://huggingface.co/lividtm/Wan_ATI/resolve/main/Wan2_1-I2V-ATI-14B_fp8_e4m3fn.safetensors?download=true"]}
+7602dd25ff8ea269 = {filename = "umt5_xxl_fp8_e4m3fn_scaled.safetensors", size = 6735906897, relative_path = "clip/umt5_xxl_fp8_e4m3fn_scaled.safetensors", category = "clip", sources = ["https://huggingface.co/lividtm/Wan_ATI/resolve/main/umt5_xxl_fp8_e4m3fn_scaled.safetensors?download=true"]}
+a73d72d9d04aaa71 = {filename = "Wan2_1_VAE_fp32.safetensors", size = 507591244, relative_path = "vae/Wan2_1_VAE_fp32.safetensors", category = "vae", sources = ["https://huggingface.co/lividtm/Wan_ATI/resolve/main/Wan2_1_VAE_fp32.safetensors?download=true"]}
 
 [tool.uv]
 constraint-dependencies = ["torch==2.9.0+cu129", "torchvision==0.24.0+cu129", "torchaudio==2.9.0+cu129"]
@@ -54,3 +126,47 @@ index = "pytorch-cu129"
 
 [tool.uv.sources.torchaudio]
 index = "pytorch-cu129"
+
+[dependency-groups]
+comfyui-fill-nodes-01517acc = [
+    "aiohttp",
+    "diffusers",
+    "fal-client",
+    "gdown",
+    "glfw",
+    "glitch-this",
+    "google-cloud-storage",
+    "google-genai",
+    "httpx",
+    "huggingface-hub",
+    "kornia",
+    "librosa",
+    "matplotlib",
+    "moviepy==1.0.3",
+    "ollama",
+    "open-clip-torch",
+    "openai",
+    "opencv-python",
+    "pdf2image",
+    "pymupdf",
+    "pyopengl",
+    "pypdf2",
+    "reportlab",
+    "requests",
+    "runwayml",
+    "scipy>=1.13.1",
+    "sounddevice",
+]
+comfyui-kjnodes-ece3b04f = [
+    "color-matcher",
+    "huggingface-hub",
+    "matplotlib",
+    "mss",
+    "opencv-python",
+    "pillow>=10.3.0",
+    "scipy",
+]
+comfyui-videohelpersuite-ffcc3e88 = [
+    "imageio-ffmpeg",
+    "opencv-python",
+]
