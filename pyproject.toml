@@ -175,6 +175,3 @@ comfyui-videohelpersuite-ffcc3e88 = [
     "imageio-ffmpeg",
     "opencv-python",
 ]
-optional-sageattn = [
-    "sageattention>=2.2.0",
-]
